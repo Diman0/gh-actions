@@ -1,4 +1,4 @@
 status = [
-  "check",
+  "Check",
 ]
 timeout_sec = 180
