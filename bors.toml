@@ -1,3 +1,4 @@
 status = [
-  "bors-test" 
+  "check",
 ]
+timeout_sec = 180
