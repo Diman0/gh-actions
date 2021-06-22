@@ -1,4 +1,2 @@
-status = [
-  "check",
-]
+status = ["Done"]
 timeout_sec = 180
