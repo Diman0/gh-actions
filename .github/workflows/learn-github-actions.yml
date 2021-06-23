@@ -16,10 +16,12 @@ jobs:
   test-env-vars:
     runs-on: ubuntu-latest
     steps:
+      - name: Extract branch name
+        shell: bash
+        run: |
+          echo "::set-env name=MAILU_VERSION::$(echo ${GITHUB_REF#refs/heads/} | sed 's/\//_/g')"
+          echo "::set-env name=TRAVIS_BRANCH::$(echo ${GITHUB_REF#refs/heads/} | sed 's/\//_/g')"     
       - name: test some env vars
-        env:
-          MAILU_VERSION: ${{ github.ref }} 
-          TRAVIS_BRANCH: ${{ github.ref }}
         run: |
           echo github.event.number = ${{ github.event.number  }}
           echo github.event.pull_request.number = ${{ github.event.pull_request.number }}
