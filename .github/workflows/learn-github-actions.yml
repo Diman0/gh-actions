@@ -24,5 +24,5 @@ jobs:
           echo github.event.number = ${{ github.event.number  }}
           echo github.event.pull_request.number = ${{ github.event.pull_request.number }}
           echo github.event.issue.number = ${{ github.event.issue.number }}
-          echo MAILU_VERSION = ${{ MAILU_VERSION }}
-          echo TRAVIS_BRANCH = ${{ TRAVIS_BRANCH }}
+          echo MAILU_VERSION = ${MAILU_VERSION}
+          echo TRAVIS_BRANCH = ${TRAVIS_BRANCH}
