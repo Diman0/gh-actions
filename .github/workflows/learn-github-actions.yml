@@ -19,8 +19,9 @@ jobs:
       - name: Extract branch name
         shell: bash
         run: |
-          echo "MAILU_VERSION=$(GITHUB_REF#refs/heads/) | sed 's/\//_/g'" >> $GITHUB_ENV
-          echo "TRAVIS_BRANCH=${GITHUB_REF#refs/heads/) | sed 's/\//_/g'" >> $GITHUB_ENV         
+          echo "MAILU_VERSION=${GITHUB_REF#refs/heads/} | sed 's/\//_/g'" >> $GITHUB_ENV
+          echo "TRAVIS_BRANCH=${GITHUB_REF#refs/heads/} | sed 's/\//_/g'" >> $GITHUB_ENV     
+          echo "TEST=${GITHUB_REF##*/}" >> $GITHUB_ENV
       - name: test some env vars
         env:
           TEST: ${{ env.MAILU_VERSION }}
@@ -28,9 +29,9 @@ jobs:
           echo github.event.number = ${{ github.event.number  }}
           echo github.event.pull_request.number = ${{ github.event.pull_request.number }}
           echo github.event.issue.number = ${{ github.event.issue.number }}
-          echo MAILU_VERSION = $(MAILU_VERSION)
-          echo TEST = $(TEST)          
-          echo TRAVIS_BRANCH = $(TRAVIS_BRANCH)
+          echo MAILU_VERSION = ${MAILU_VERSION}
+          echo TEST = ${TEST}
+          echo TRAVIS_BRANCH = ${TRAVIS_BRANCH}
           
           
  
